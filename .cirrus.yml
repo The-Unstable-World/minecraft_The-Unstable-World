@@ -1,0 +1,12 @@
+build_task:
+  container:
+    dockerfile: Dockerfile-CI
+    cpu: 4
+    memory: 6G
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm install
+  build_script: ./build.sh
+  jar_artifacts:
+    path: "dist/**/*"
